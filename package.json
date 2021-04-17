@@ -5,10 +5,14 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "test:e2e": "vue-cli-service test:e2e"
+    "test:e2e": "vue-cli-service test:e2e",
+    "deploy": "sh deploy.sh && rm -rf ./dist",
+    "docker-build": "docker build -t auto-paper/dockerize-vuejs-app .",
+    "docker-run": "docker run -it -p 8080:8080 --rm --name dockerize-vuejs-app-1 auto-paper/dockerize-vuejs-app"
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "http-server": "^0.12.3",
     "vue": "^3.0.0",
     "vue-router": "^4.0.0-0",
     "vuex": "^4.0.0-0"
