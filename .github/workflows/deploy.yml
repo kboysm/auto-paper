@@ -32,7 +32,6 @@ jobs:
           VUE_APP_MESSAGING_SENDERID: ${{ secrets.VUE_APP_MESSAGING_SENDERID }}
           VUE_APP_APP_ID: ${{ secrets.VUE_APP_APP_ID }}
           VUE_APP_MEASUREMENT_ID: ${{ secrets.VUE_APP_MEASUREMENT_ID }}
-          BASE_URL: https://kboysm.github.io/auto-paper
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
