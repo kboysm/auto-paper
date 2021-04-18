@@ -27,9 +27,8 @@ jobs:
         env:
           NODE_ENV: production
       - name: Deploy
-        uses: peaceiris/actions-gh-pages@v2.5.0
-        env:
-          PERSONAL_TOKEN: ${{secrets.GH_PAT}}
-          PUBLISH_BRANCH:  gh-pages
-          PUBLISH_DIR: ./dist
-          SCRIPT_MODE: true
+        run: |
+          git config --global user.email ${{ secrets.GH_EMAIL }}
+          git config --global user.name ${{ secrets.GH_NAME }}
+          git remote set-url origin https://${{ secrets.GH_PAT }}@github.com/${{ secrets.GH_NAME }}/auto-paper.git
+          npm run deploy
