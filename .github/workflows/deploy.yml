@@ -22,7 +22,10 @@ jobs:
       - name: Install dependencies
         run: yarn
       - name: Build
-        run: yarn build
+        run: 
+        yarn build
+        cp dist/index.html dist/404.html
+        
         env:
           NODE_ENV: production
           VUE_APP_APIKEY: ${{ secrets.VUE_APP_APIKEY }}
