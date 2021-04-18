@@ -22,10 +22,7 @@ jobs:
       - name: Install dependencies
         run: yarn
       - name: Build
-        run: 
-        yarn build
-        cp dist/index.html dist/404.html
-        
+        run: yarn build
         env:
           NODE_ENV: production
           VUE_APP_APIKEY: ${{ secrets.VUE_APP_APIKEY }}
@@ -35,6 +32,7 @@ jobs:
           VUE_APP_MESSAGING_SENDERID: ${{ secrets.VUE_APP_MESSAGING_SENDERID }}
           VUE_APP_APP_ID: ${{ secrets.VUE_APP_APP_ID }}
           VUE_APP_MEASUREMENT_ID: ${{ secrets.VUE_APP_MEASUREMENT_ID }}
+          BASE_URL: https://kboysm.github.io/auto-paper
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
