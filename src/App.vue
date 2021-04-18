@@ -11,11 +11,12 @@ import getAuth from './composables/getAuth'
 
 export default {
   setup( props ) {
-    const { init, userObj, setUserObj } = getAuth();
+    const { init, userObj, setUserObj, refreshUser } = getAuth();
     return {
       init,
       userObj,
-      setUserObj
+      setUserObj,
+      refreshUser
     }
   },
 }
