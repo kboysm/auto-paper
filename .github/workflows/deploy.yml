@@ -21,7 +21,14 @@ jobs:
             ${{ runner.OS }}-build-${{ runner.OS }}-
       - name: Install dependencies
         run: yarn
-
+        env:
+          VUE_APP_APIKEY= ${{secrets.VUE_APP_APIKEY}}
+          VUE_APP_AUTH_DOMAIN= ${{secrets.VUE_APP_AUTH_DOMAIN}}
+          VUE_APP_PROJECT_ID= ${{secrets.VUE_APP_PROJECT_ID}}
+          VUE_APP_STORAGE_BUCKET= ${{secrets.VUE_APP_STORAGE_BUCKET}}
+          VUE_APP_MESSAGING_SENDERID= ${{secrets.VUE_APP_MESSAGING_SENDERID}}
+          VUE_APP_APP_ID= ${{secrets.VUE_APP_APP_ID}}
+          VUE_APP_MEASUREMENT_ID= ${{secrets.VUE_APP_MEASUREMENT_ID}}
       - name: Build
         run: yarn build
         env:
