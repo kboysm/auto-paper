@@ -16,7 +16,7 @@ jobs:
         uses: actions/cache@v1
         with:
           path: node_modules
-          key: ${{runner.OS}}-build-${{hashFiles('**/yarn.lock')}}
+          key: ${{ runner.OS }}-build-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.OS }}-build-${{ runner.OS }}-
       - name: Install dependencies
@@ -25,13 +25,13 @@ jobs:
         run: yarn build
         env:
           NODE_ENV: production
-          VUE_APP_APIKEY: ${{secrets.VUE_APP_APIKEY}}
-          VUE_APP_AUTH_DOMAIN: ${{secrets.VUE_APP_AUTH_DOMAIN}}
-          VUE_APP_PROJECT_ID: ${{secrets.VUE_APP_PROJECT_ID}}
-          VUE_APP_STORAGE_BUCKET: ${{secrets.VUE_APP_STORAGE_BUCKET}}
-          VUE_APP_MESSAGING_SENDERID: ${{secrets.VUE_APP_MESSAGING_SENDERID}}
-          VUE_APP_APP_ID: ${{secrets.VUE_APP_APP_ID}}
-          VUE_APP_MEASUREMENT_ID: ${{secrets.VUE_APP_MEASUREMENT_ID}}
+          VUE_APP_APIKEY: ${{ secrets.VUE_APP_APIKEY }}
+          VUE_APP_AUTH_DOMAIN: ${{ secrets.VUE_APP_AUTH_DOMAIN }}
+          VUE_APP_PROJECT_ID: ${{ secrets.VUE_APP_PROJECT_ID }}
+          VUE_APP_STORAGE_BUCKET: ${{ secrets.VUE_APP_STORAGE_BUCKET }}
+          VUE_APP_MESSAGING_SENDERID: ${{ secrets.VUE_APP_MESSAGING_SENDERID }}
+          VUE_APP_APP_ID: ${{ secrets.VUE_APP_APP_ID }}
+          VUE_APP_MEASUREMENT_ID: ${{ secrets.VUE_APP_MEASUREMENT_ID }}
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:

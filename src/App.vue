@@ -1,11 +1,25 @@
 <template>
   <div id="nav">
+    {{init}}
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
   </div>
   <router-view/>
 </template>
+<script>
+import getAuth from './composables/getAuth'
 
+export default {
+  setup( props ) {
+    const { init, userObj, setUserObj } = getAuth();
+    return {
+      init,
+      userObj,
+      setUserObj
+    }
+  },
+}
+</script>
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
