@@ -31,4 +31,4 @@ jobs:
         with:
           personal_token: ${{ secrets.GH_PAT }}
           deploy_key: ${{ secrets.GH_DEPLOY_KEY }}
-          public_dir: ./dist
+          publish_dir: ./dist
