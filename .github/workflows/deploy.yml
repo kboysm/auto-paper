@@ -32,6 +32,8 @@ jobs:
           VUE_APP_MESSAGING_SENDERID: ${{ secrets.VUE_APP_MESSAGING_SENDERID }}
           VUE_APP_APP_ID: ${{ secrets.VUE_APP_APP_ID }}
           VUE_APP_MEASUREMENT_ID: ${{ secrets.VUE_APP_MEASUREMENT_ID }}
+      - name: Cypress run
+        uses: cypress-io/github-action@v2
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
