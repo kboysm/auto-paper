@@ -1,12 +1,12 @@
 <template>
 {{newAccount}}
         <form @submit.prevent >
-            <input class="authInput" name="email" type="text" placeholder="Email" required  v-model="email" @input="onInputEmail" />
-            <input class="authInput" name="password" type="password" placeholder="Password" required  v-model="password" @input="onInputPassword" />
-            <input class="authInput authSubmit" @click="onSubmit" type="submit" :value="newAccount ? 'Create Account' : 'Log In'" />
+            <input id="AuthFormEmail" autofocus class="authInput" name="email" type="text" placeholder="Email" required  v-model="email" @input="onInputEmail" />
+            <input id="AuthFormPassword" class="authInput" name="password" type="password" placeholder="Password" required  v-model="password" @input="onInputPassword" />
+            <input id="AuthFormSubmit" class="authInput authSubmit" @click="onSubmit" type="submit" :value="newAccount ? 'Create Account' : 'Log In'" />
             <span class="authError">{{error}}</span>
         </form>
-        <span className="authSwitch" @Click="toggleAccount">{{newAccount ? "Log In" : "Create Account"}}</span>
+        <span id="toggleAccount" className="authSwitch" @Click="toggleAccount">{{newAccount ? "Log In" : "Create Account"}}</span>
 </template>
 <script>
 import { ref } from 'vue'

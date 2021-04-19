@@ -1,20 +1,22 @@
 <template>
   <router-view/>
-  <button @click="onLogOutClick">Log Out</button>
+  <button id="AuthLogOut" v-if="userObj.uid" @click="onLogOutClick">Log Out</button>
+  <button id="AuthUserDelete" v-if="userObj.uid" @click="userObjDelete">User Delete</button>
 </template>
 <script>
 import getAuth from './composables/getAuth'
 
 export default {
-  setup( props ) {
-    const { init, userObj, setUserObj, refreshUser, onLogOutClick } = getAuth();
+  setup() {
+    const { init, userObj, setUserObj, refreshUser, onLogOutClick, userObjDelete } = getAuth();
     
     return {
       init,
       userObj,
       setUserObj,
       refreshUser,
-      onLogOutClick
+      onLogOutClick,
+      userObjDelete
     }
   },
 }

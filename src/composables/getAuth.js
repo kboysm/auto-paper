@@ -28,6 +28,16 @@ const getAuth = () => {
         // history.push("/")
         refreshUser();
     }
+    const userObjDelete = () => {
+        const user = authService.currentUser;
+        user.delete()
+            .then(() => {
+                console.log('User Delete')
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+    }
     onMounted( () => {
         authService.onAuthStateChanged(( user )=> {
             if( user ) {
@@ -48,7 +58,7 @@ const getAuth = () => {
         })
         setInit(true)
     })
-    return { init, userObj, setUserObj, refreshUser, onLogOutClick }
+    return { init, userObj, setUserObj, refreshUser, onLogOutClick, userObjDelete }
 }
 
 export default getAuth;
