@@ -1,17 +1,20 @@
 <template>
   <router-view/>
+  <button @click="onLogOutClick">Log Out</button>
 </template>
 <script>
 import getAuth from './composables/getAuth'
 
 export default {
   setup( props ) {
-    const { init, userObj, setUserObj, refreshUser } = getAuth();
+    const { init, userObj, setUserObj, refreshUser, onLogOutClick } = getAuth();
+    
     return {
       init,
       userObj,
       setUserObj,
-      refreshUser
+      refreshUser,
+      onLogOutClick
     }
   },
 }

@@ -18,11 +18,16 @@ const getAuth = () => {
     const refreshUser = () => {
         const user = authService.currentUser
         setUserObj({
-          displayName: user.displayName,
-          uid: user.uid,
-          updateProfile: ( args ) => user.updateProfile(args),
+            displayName: user.displayName,
+            uid: user.uid,
+            updateProfile: ( args ) => user.updateProfile(args),
         });
-      }
+    }
+    const onLogOutClick = () => {
+        authService.signOut();
+        // history.push("/")
+        refreshUser();
+    }
     onMounted( () => {
         authService.onAuthStateChanged(( user )=> {
             if( user ) {
@@ -43,7 +48,7 @@ const getAuth = () => {
         })
         setInit(true)
     })
-    return { init, userObj, setUserObj, refreshUser }
+    return { init, userObj, setUserObj, refreshUser, onLogOutClick }
 }
 
 export default getAuth;
