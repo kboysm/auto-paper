@@ -27,9 +27,7 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
-          start: 
-            npm update
-            yarn test:e2e
+          browser: chrome
       - name: Build
         run: yarn build
         env:
