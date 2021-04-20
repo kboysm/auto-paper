@@ -28,6 +28,11 @@ jobs:
       #   run: npm i -g caniuse-lite
       - name: Cypress run
         uses: cypress-io/github-action@v2
+        with:
+          record: true
+          start: yarn test:e2e
+        env:
+          NODE_ENV: production
       - name: Build
         run: yarn build
         env:
@@ -41,6 +46,10 @@ jobs:
           VUE_APP_MEASUREMENT_ID: ${{ secrets.VUE_APP_MEASUREMENT_ID }}
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
+        with:
+          record: true
+        env:
+          NODE_ENV: production
         with:
           personal_token: ${{ secrets.GH_PAT }}
           deploy_key: ${{ secrets.GH_DEPLOY_KEY }}
