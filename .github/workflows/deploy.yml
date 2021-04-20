@@ -28,7 +28,7 @@ jobs:
         uses: cypress-io/github-action@v2
         with:
           start: 
-            npm update caniuse-lite browserslist
+            npm update
             yarn test:e2e
       - name: Build
         run: yarn build
