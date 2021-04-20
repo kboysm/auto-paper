@@ -27,8 +27,8 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
-          run: npm i -g caniuse-lite
           browser: chrome
+        run: npm i -g caniuse-lite
       - name: Build
         run: yarn build
         env:
