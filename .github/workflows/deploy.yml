@@ -23,13 +23,13 @@ jobs:
           restore-keys: |
             ${{ runner.OS }}-node_modules-build-${{ runner.OS }}-
       - name: Install dependencies
-        run: yarn
+        run: |
+          yarn 
+          yarn upgrade --latest
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
           browser: chrome
-          start: npx browserslist@4.10 --update-db
-          
       - name: Build
         run: yarn build
         env:
