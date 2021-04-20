@@ -24,11 +24,12 @@ jobs:
             ${{ runner.OS }}-node_modules-build-${{ runner.OS }}-
       - name: Install dependencies
         run: yarn
+      - name: browser update
+        run: npm i -g caniuse-lite
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
           browser: chrome
-        run: npm i -g caniuse-lite
       - name: Build
         run: yarn build
         env:
