@@ -24,11 +24,10 @@ jobs:
             ${{ runner.OS }}-node_modules-build-${{ runner.OS }}-
       - name: Install dependencies
         run: yarn
-      - name: browser update
-        run: yarn add caniuse-lite
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
+          update: sudo yarn add browserslist caniuse-lite
           browser: chrome
       - name: Build
         run: yarn build
