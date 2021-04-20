@@ -23,9 +23,9 @@ jobs:
           restore-keys: |
             ${{ runner.OS }}-node_modules-build-${{ runner.OS }}-
       - name: Install dependencies
-        run: |
-          yarn 
-          yarn upgrade --latest
+        run: 
+          yarn
+          npm update caniuse-lite
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
