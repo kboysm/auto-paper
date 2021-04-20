@@ -28,6 +28,8 @@ jobs:
         uses: cypress-io/github-action@v2
         with:
           browser: chrome
+          start: npx browserslist@4.10 --update-db
+          
       - name: Build
         run: yarn build
         env:
