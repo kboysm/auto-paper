@@ -27,7 +27,7 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
-          install-command: yarn add browserslist caniuse-lite
+          run: npm update
           browser: chrome
       - name: Build
         run: yarn build
