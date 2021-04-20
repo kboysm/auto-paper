@@ -2,7 +2,7 @@
 
 describe('git actions test', () => {
   it('test', () => {
-    cy.visit('/')
+    cy.visit('/auto-paper')
     // cy.get('#AuthLogOut').click()
   })
 })
