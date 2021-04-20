@@ -2,7 +2,7 @@
 
 describe('git actions test', () => {
   it('test', () => {
-    cy.visit('/auto-paper')
+    cy.visit('/auto-paper', { responseTimeout: 31000 })
     // cy.get('#AuthLogOut').click()
   })
 })
