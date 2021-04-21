@@ -28,10 +28,6 @@ jobs:
       #   run: npm i -g caniuse-lite
       - name: Cypress run
         uses: cypress-io/github-action@v2
-        with: 
-          start: yarn test:e2e
-        env:
-          NODE_ENV: production
       - name: Build
         run: yarn build
         env:
