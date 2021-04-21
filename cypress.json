@@ -1,4 +1,4 @@
 {
-  "baseUrl":"https://kboysm.github.io/auto-paper/",
+  "baseUrl":"https://kboysm.github.io",
   "pluginsFile": "tests/e2e/plugins/index.js"
 }
