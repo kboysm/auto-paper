@@ -15,7 +15,6 @@ jobs:
       - name: Cache node_modules
         uses: actions/cache@v2
         with:
-          start: npm start
           path: |
             node_modules
             ~/.cache/Cypress
@@ -30,6 +29,7 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
+          start: npm start
       - name: Build
         run: yarn build
         env:
