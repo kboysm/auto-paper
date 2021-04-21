@@ -10,15 +10,22 @@
 describe('Sign In test', () => {
   it('/ -> /Auth 리다이렉트 후 로그인', () => {
     cy.visit('/')
-    // cy.get('#AuthLogOut').click()
     
-    cy.focused()
-      .should('have.id', 'AuthFormEmail')
-      .type('asd@asd.asd')
-      .get('#AuthFormPassword')
-      .type('123456')
-      .get('#toggleAccount').click()
-      .get('#AuthFormSubmit').click()
+    cy.get('.authSwitch').click()
+    cy.get('form');
+    cy.get('input[name="email"]').type("asd@asd.asd").should("have.value","asd@asd.asd")
+    cy.get('input[name="password"]').type("123456").should("have.value","123456")
+    cy.get('input[type="submit"]').click()
+
+
+
+    // cy.focused()
+    //   .should('have.id', 'AuthFormEmail')
+    //   .type('asd@asd.asd')
+    //   .get('#AuthFormPassword')
+    //   .type('123456')
+    //   .get('#toggleAccount').click()
+    //   .get('#AuthFormSubmit').click()
   })
 })
 
@@ -30,23 +37,23 @@ describe('Sign Out test', () => {
   })
 })
 
-describe('Sign Up test', () => {
-  it('회원가입', () => {
-    cy.visit('/')
-    cy.focused()
-      .should('have.id', 'AuthFormEmail')
-      .type('test@asd.asd')
-      .get('#AuthFormPassword')
-      .type('123456')
-      .get('#AuthFormSubmit').click()
+// describe('Sign Up test', () => {
+//   it('회원가입', () => {
+//     cy.visit('/')
+//     cy.focused()
+//       .should('have.id', 'AuthFormEmail')
+//       .type('test@asd.asd')
+//       .get('#AuthFormPassword')
+//       .type('123456')
+//       .get('#AuthFormSubmit').click()
     
-  })
-})
+//   })
+// })
 
-describe('Sign Out test', () => {
-  it('회원 탈퇴', () => {
+// describe('Sign Out test', () => {
+//   it('회원 탈퇴', () => {
     
-    cy.get('#AuthUserDelete').click()
+//     cy.get('#AuthUserDelete').click()
     
-  })
-})
+//   })
+// })
