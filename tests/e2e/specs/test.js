@@ -9,7 +9,7 @@
 
 describe('Sign In test', () => {
   it('/ -> /Auth 리다이렉트 후 로그인', () => {
-    cy.visit('/')
+    cy.visit('https://kboysm.github.io/auto-paper')
     
     cy.get('.authSwitch').click()
     cy.get('form');
