@@ -15,6 +15,7 @@ jobs:
       - name: Cache node_modules
         uses: actions/cache@v2
         with:
+          start: npm start
           path: |
             node_modules
             ~/.cache/Cypress
@@ -28,6 +29,7 @@ jobs:
       #   run: npm i -g caniuse-lite
       - name: Cypress run
         uses: cypress-io/github-action@v2
+        with:
       - name: Build
         run: yarn build
         env:
