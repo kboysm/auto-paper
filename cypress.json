@@ -1,4 +1,4 @@
 {
-  "baseUrl":"http://localhost:8080/auto-paper/",
+  "baseUrl":"https://kboysm.github.io/auto-paper/",
   "pluginsFile": "tests/e2e/plugins/index.js"
 }
