@@ -28,6 +28,9 @@ jobs:
       #   run: npm i -g caniuse-lite
       - name: Cypress run
         uses: cypress-io/github-action@v2
+        with:
+          start: yarn test:e2e
+          wait-on: 'http://localhost:8080/auto-paper/'
       - name: Build
         run: yarn build
         env:
