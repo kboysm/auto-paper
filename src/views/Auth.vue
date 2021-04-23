@@ -1,39 +1,136 @@
 <template>
-    <SignForm />
-    <div></div>
+    <div id="bg-three"></div>
+        <SignForm />
 </template>
 <script>
 import SignForm from '../components/SignForm'
 import * as THREE from 'three'
+
+import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js';
+import { ShaderPass } from 'three/examples/jsm/postprocessing/ShaderPass.js';
+import { TexturePass } from 'three/examples/jsm/postprocessing/TexturePass.js';
+import { ClearPass } from 'three/examples/jsm/postprocessing/ClearPass.js';
+import { MaskPass, ClearMaskPass } from 'three/examples/jsm/postprocessing/MaskPass.js';
+import { CopyShader } from 'three/examples/jsm/shaders/CopyShader.js';
+
 import { onMounted } from 'vue'
 export default {
     components:{
         SignForm
     },
     setup() {
-        const init = () => {
-            let scene = new THREE.Scene();
-            let camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight);
-            let renderer = new THREE.WebGLRenderer({ antialias: true })
-            renderer.setSize( window.innerWidth, window.innerHeight )
-            document.body.append(renderer.domElement);
+        const BgInit = () => {
+            let camera, composer, renderer;
+			let box, torus;
 
-            let geometry = new THREE.BoxGeometry( 1, 1, 1 )
-            let material = new THREE.MeshBasicMaterial( {color: 0xff0000})
-            let cube = new THREE.Mesh( geometry, material)
-            scene.add( cube )
 
-            cube.position.z = -5;
-            let animate = () => {
-                cube.rotation.x += 0.01;
-                renderer.render(scene, camera);
-                requestAnimationFrame( animate )
-            }
-            animate()
+			function init() {
+				camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 1, 1000 );
+				camera.position.z = 10;
+
+				const scene1 = new THREE.Scene();
+				const scene2 = new THREE.Scene();
+
+				box = new THREE.Mesh( new THREE.BoxGeometry( 4, 4, 4 ) );
+				scene1.add( box );
+
+				torus = new THREE.Mesh( new THREE.TorusGeometry( 3, 1, 16, 32 ) );
+				scene2.add( torus );
+
+				renderer = new THREE.WebGLRenderer();
+				renderer.setClearColor( 0xe0e0e0 );
+				renderer.setPixelRatio( window.devicePixelRatio );
+				renderer.setSize( window.innerWidth, window.innerHeight );
+				renderer.autoClear = false;
+				document.body.appendChild( renderer.domElement );
+
+				//
+
+				const clearPass = new ClearPass();
+
+				const clearMaskPass = new ClearMaskPass();
+
+				const maskPass1 = new MaskPass( scene1, camera );
+				const maskPass2 = new MaskPass( scene2, camera );
+
+				const texture1 = new THREE.TextureLoader().load( 'https://threejsfundamentals.org/threejs/resources/images/wall.jpg' );
+				texture1.minFilter = THREE.LinearFilter;
+				const texture2 = new THREE.TextureLoader().load( 'https://threejsfundamentals.org/threejs/resources/images/wall.jpg' );
+
+				const texturePass1 = new TexturePass( texture1 );
+				const texturePass2 = new TexturePass( texture2 );
+
+				const outputPass = new ShaderPass( CopyShader );
+
+				const parameters = {
+					minFilter: THREE.LinearFilter,
+					magFilter: THREE.LinearFilter,
+					format: THREE.RGBFormat,
+					stencilBuffer: true
+				};
+
+				const renderTarget = new THREE.WebGLRenderTarget( window.innerWidth, window.innerHeight, parameters );
+
+				composer = new EffectComposer( renderer, renderTarget );
+				composer.addPass( clearPass );
+				composer.addPass( maskPass1 );
+				composer.addPass( texturePass1 );
+				composer.addPass( clearMaskPass );
+				composer.addPass( maskPass2 );
+				composer.addPass( texturePass2 );
+				composer.addPass( clearMaskPass );
+				composer.addPass( outputPass );
+
+				window.addEventListener( 'resize', onWindowResize );
+
+			}
+
+			function onWindowResize() {
+
+				const width = window.innerWidth;
+				const height = window.innerHeight;
+
+				camera.aspect = width / height;
+				camera.updateProjectionMatrix();
+
+				renderer.setSize( width, height );
+				composer.setSize( width, height );
+
+			}
+
+			function animate() {
+
+				requestAnimationFrame( animate );
+
+				const time = performance.now() * 0.001 + 6000;
+
+				box.position.x = Math.cos( time / 1.5 ) * 2;
+				box.position.y = Math.sin( time ) * 2;
+				box.rotation.x = time;
+				box.rotation.y = time / 2;
+
+				torus.position.x = Math.cos( time ) * 2;
+				torus.position.y = Math.sin( time / 1.5 ) * 2;
+				torus.rotation.x = time;
+				torus.rotation.y = time / 2;
+
+				renderer.clear();
+				composer.render( time );
+
+			}
+            
+			init();
+			animate();
         }
         onMounted(()=> {
-            init()
+            BgInit()
         })
     },
 }
 </script>
+<style scoped>
+    #bg-three{
+        position: fixed;
+        z-index: 2;
+    }
+</style>

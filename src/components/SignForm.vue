@@ -1,5 +1,5 @@
 <template>
-{{newAccount}}
+<div  class="AuthForm">
         <form @submit.prevent >
             <input id="AuthFormEmail" autofocus class="authInput" name="email" type="text" placeholder="Email" required  v-model="email" @input="onInputEmail" />
             <input id="AuthFormPassword" class="authInput" name="password" type="password" placeholder="Password" required  v-model="password" @input="onInputPassword" />
@@ -7,6 +7,7 @@
             <span class="authError">{{error}}</span>
         </form>
         <span id="toggleAccount" className="authSwitch" @Click="toggleAccount">{{newAccount ? "Log In" : "Create Account"}}</span>
+</div>
 </template>
 <script>
 import { ref } from 'vue'
@@ -63,3 +64,13 @@ export default {
     },
 }
 </script>
+<style scoped>
+ .AuthForm {
+     position: fixed;
+     z-index: 10;
+ }
+ #toggleAccount{
+     color:white;
+     cursor: pointer;
+ }
+</style>
