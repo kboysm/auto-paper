@@ -21,7 +21,7 @@ export default {
     setup() {
         const BgInit = () => {
             let camera, composer, renderer;
-			let box, torus;
+			let torus1, torus2;
 
 
 			function init() {
@@ -31,11 +31,11 @@ export default {
 				const scene1 = new THREE.Scene();
 				const scene2 = new THREE.Scene();
 
-				box = new THREE.Mesh( new THREE.BoxGeometry( 4, 4, 4 ) );
-				scene1.add( box );
+				torus1 = new THREE.Mesh( new THREE.TorusGeometry( window.innerWidth/window.innerHeight, 1, 16, 32 ) );
+				scene1.add( torus1 );
 
-				torus = new THREE.Mesh( new THREE.TorusGeometry( 3, 1, 16, 32 ) );
-				scene2.add( torus );
+				torus2 = new THREE.Mesh( new THREE.TorusGeometry(  (window.innerWidth/window.innerHeight)+1.5, 1, 16, 32 ) );
+				scene2.add( torus2 );
 
 				renderer = new THREE.WebGLRenderer();
 				renderer.setClearColor( 0xe0e0e0 );
@@ -53,9 +53,11 @@ export default {
 				const maskPass1 = new MaskPass( scene1, camera );
 				const maskPass2 = new MaskPass( scene2, camera );
 
-				const texture1 = new THREE.TextureLoader().load( 'https://threejsfundamentals.org/threejs/resources/images/wall.jpg' );
+				const cartoonImage = require('../assets/cartoon.jpg');
+				const texture1 = new THREE.TextureLoader().load( cartoonImage );
 				texture1.minFilter = THREE.LinearFilter;
-				const texture2 = new THREE.TextureLoader().load( 'https://threejsfundamentals.org/threejs/resources/images/wall.jpg' );
+				const officeImage = require('../assets/office.jpg');
+				const texture2 = new THREE.TextureLoader().load( officeImage );
 
 				const texturePass1 = new TexturePass( texture1 );
 				const texturePass2 = new TexturePass( texture2 );
@@ -104,15 +106,15 @@ export default {
 
 				const time = performance.now() * 0.001 + 6000;
 
-				box.position.x = Math.cos( time / 1.5 ) * 2;
-				box.position.y = Math.sin( time ) * 2;
-				box.rotation.x = time;
-				box.rotation.y = time / 2;
+				torus1.position.x = Math.cos( time / 1.5 ) * 2;
+				torus1.position.y = Math.sin( time ) ;
+				torus1.rotation.x = Math.cos( time / 1.5 ) * 2;
+				torus1.rotation.y = Math.sin( time ) * 3;
 
-				torus.position.x = Math.cos( time ) * 2;
-				torus.position.y = Math.sin( time / 1.5 ) * 2;
-				torus.rotation.x = time;
-				torus.rotation.y = time / 2;
+				torus2.position.x = Math.cos( time / 1.5 ) * 6;
+				torus2.position.y = Math.sin( time / 3 );
+				torus2.rotation.x = time;
+				torus2.rotation.y = time / 2;
 
 				renderer.clear();
 				composer.render( time );
