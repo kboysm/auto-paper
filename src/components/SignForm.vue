@@ -66,8 +66,11 @@ export default {
 </script>
 <style scoped>
  .AuthForm {
-     position: fixed;
-     z-index: 10;
+    position: absolute;
+    width: 100px;
+    left: calc(50vw - 50px);
+    top: calc(50vh - 50px);
+    height: 50px;
  }
  #toggleAccount{
      color:white;
