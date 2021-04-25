@@ -1,3 +1,4 @@
+// https://particles.js.org/ 참고하기
 export const particlesOption = {
     "autoPlay": true,
     "background": {
