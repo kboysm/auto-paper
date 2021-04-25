@@ -74,22 +74,26 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+$formColor: rgba(0, 0, 0, .6);
+$baseColor: #fff;
+$effectColor: #03e9f4;
+$errorFontColor: red;
     .AuthForm {
         position: absolute;
-        left: calc(50vw - 50px);
+        left: 50vw;
         top: calc(50vh - 50px);
         width: 400px;
         padding: 40px;
         transform: translate(-50%, -50%);
-        background: rgba(0, 0, 0, .6);
+        background: $formColor;
         box-sizing: border-box;
-        box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
+        box-shadow: 0 15px 25px $formColor;
         border-radius: 10px;
 
         h2 {
             margin: 0 0 30px;
             padding: 0;
-            color: #fff;
+            color: $baseColor;
             text-align: center;
         }
 
@@ -97,10 +101,10 @@ export default {
             width: 100%;
             padding: 10px 0;
             font-size: 16px;
-            color: #fff;
+            color: $baseColor;
             margin-bottom: 30px;
             border: none;
-            border-bottom: 1px solid #fff;
+            border-bottom: 1px solid $baseColor;
             outline: none;
             background: transparent;
         }
@@ -111,7 +115,7 @@ export default {
             left: 0;
             padding: 10px 0;
             font-size: 16px;
-            color: #fff;
+            color: $baseColor;
             pointer-events: none;
             transition: .5s;
         }
@@ -120,7 +124,7 @@ export default {
         input:valid ~ label {
             top: -20px;
             left: 0;
-            color: #03e9f4;
+            color: $effectColor;
             font-size: 12px;
         }
 
@@ -128,7 +132,7 @@ export default {
             position: relative;
             display: inline-block;
             padding: 10px 20px;
-            color: #fff;
+            color: $baseColor;
             font-size: 16px;
             text-decoration: none;
             overflow: hidden;
@@ -136,15 +140,13 @@ export default {
             margin-top: 40px;
             letter-spacing: 4px;
             border: none;
-        }
-        .authSubmit:hover {
+
+            &:hover {
             background: #03e9a4;
-            color: #fff;
+            color: $baseColor;
             border-radius: 5px;
-            box-shadow: 0 0 5px #03e9f4,
-                        0 0 25px #03e9f4,
-                        0 0 50px #03e9f4,
-                        0 0 100px #03e9f4;
+            box-shadow: 0 0 5px $effectColor;
+        }
         }
 
         .user-box {
@@ -152,11 +154,11 @@ export default {
         }
 
         .authError {
-            color: red;
+            color: $errorFontColor;
         }
 
         #toggleAccount{
-            color:white;
+            color: $baseColor;
             cursor: pointer;
         }
     }

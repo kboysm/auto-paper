@@ -7,6 +7,7 @@ backend를 firebase를 사용하여 frontend에 더 신경을 쓰기로 결정.
 자동 서류 양식을 만들고 .csv 파일을 드래그하여 자료를 서류에 binding 후 서류를 인쇄할 수 있도록 하는 프로젝트.   
 frontend에 요즘 관심있는 interective Web을 섞어서 구현하도록 함.   
 CI/CD 적용할 계획 , 테스트 프레임워크 중 하나를 사용하여 구현하도록 한다.   
+프로젝트의 특성상 pc작업을 요하므로 모바일 친화적 반응형 웹 작업은 생략한다.
 
 ## CI/CD
 github actions 과 git pages를 사용해서 CI/CD 구현
