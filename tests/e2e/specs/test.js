@@ -31,12 +31,11 @@ describe('Sign Up test', () => {
   it('회원가입', () => {
     cy.visit('https://kboysm.github.io/auto-paper')
     cy.get('.authSwitch').click()
-    cy.focused()
-      .should('have.id', 'AuthFormEmail')
-      .type('test@asd.asd')
-      .get('#AuthFormPassword')
-      .type('123456')
-      .get('#AuthFormSubmit').click()
+
+    cy.get('form');
+    cy.get('input[name="email"]').type("test@asd.asd").should("have.value","test@asd.asd")
+    cy.get('input[name="password"]').type("123456").should("have.value","123456")
+    cy.get('input[type="submit"]').click()
     
   })
 })
