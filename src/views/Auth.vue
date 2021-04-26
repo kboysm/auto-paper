@@ -1,10 +1,5 @@
 <template>
-    <Particles
-        class="bg-three"
-        id="tsparticles"
-        :options="particlesOption"
-    />
-    <SignForm />
+        <SignForm />
 </template>
 <script>
 import SignForm from '../components/SignForm'
@@ -15,11 +10,10 @@ export default {
         SignForm
     },
     setup() {
-        const particlesOption= require('./particlesConfig').particlesOption
+
         onMounted(()=>{
         })
         return{
-            particlesOption
         }
     },
 }
