@@ -1,17 +1,32 @@
 <template>
     <nav>
-        <ul class="menu">
-            <li><a href="#">서류생성</a></li>
-            <li><a href="#">데이터<br>불러오기</a></li>
-            <li><a href="#">적용 서류<br> 선택</a></li>
-            <li><a href="#">로그아웃</a></li>
+        <ul class="menu" v-if="path !== '/Auth'">
+            <li><a><router-link to="/Home">홈</router-link></a></li>
+            <li><a><router-link to="/CreatePaperForm">서류생성</router-link></a></li>
+            <li><a><router-link to="/ImportData">데이터<br>불러오기</router-link></a></li>
+            <li><a><router-link to="SelectPaperForm">적용 서류<br> 선택</router-link></a></li>
+            <li><a id="AuthLogOut" @click="onLogOutClick">로그아웃</a></li>
+            <li><a id="AuthUserDelete" @click="userObjDelete">계정삭제</a></li> <!-- test용 버튼 삭제 예정 -->
         </ul>
     </nav>
 </template>
 
 <script>
+import { computed } from 'vue'
+import { useRoute } from 'vue-router'
+import getAuth from '../composables/getAuth'
+
 export default {
-    
+    setup() {
+        const route = useRoute()
+        const path = computed(()=> route.path)
+        const { onLogOutClick, userObjDelete } = getAuth();
+        return {
+            path,
+            onLogOutClick,
+            userObjDelete
+        }
+    }    
 }
 </script>
 <style lang="scss">
@@ -39,6 +54,7 @@ export default {
             color: #fff;
             text-decoration: none;
             transition: all 0.45s;
+            cursor: pointer;
         }
 
         &:hover {

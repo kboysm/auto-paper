@@ -10,6 +10,7 @@
 describe('Sign In test', () => {
   it('/ -> /Auth 리다이렉트 후 로그인', () => {
     cy.visit('https://kboysm.github.io/auto-paper')
+    // cy.visit('/')
     
     cy.get('form');
     cy.get('input[name="email"]').type("asd@asd.asd").should("have.value","asd@asd.asd")
@@ -30,6 +31,7 @@ describe('Sign Out test', () => {
 describe('Sign Up test', () => {
   it('회원가입', () => {
     cy.visit('https://kboysm.github.io/auto-paper')
+    // cy.visit('/')
     cy.get('.authSwitch').click()
 
     cy.get('form');

@@ -6,8 +6,8 @@
   />
   <nav-bar />
   <router-view/>
-  <button id="AuthLogOut" v-if="userObj.uid" @click="onLogOutClick">Log Out</button>
-  <button id="AuthUserDelete" v-if="userObj.uid" @click="userObjDelete">User Delete</button>
+  <!-- <button id="AuthLogOut" v-if="userObj.uid" @click="onLogOutClick">Log Out</button>
+  <button id="AuthUserDelete" v-if="userObj.uid" @click="userObjDelete">User Delete</button> -->
 </template>
 <script>
 import getAuth from './composables/getAuth'
