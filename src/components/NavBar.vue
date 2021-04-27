@@ -1,7 +1,7 @@
 <template>
     <nav>
         <ul class="menu" v-if="path !== '/Auth'">
-            <li><a><router-link to="/Home">홈</router-link></a></li>
+            <li><a><router-link to="/">홈</router-link></a></li>
             <li><a><router-link to="/CreatePaperForm">서류생성</router-link></a></li>
             <li><a><router-link to="/ImportData">데이터<br>불러오기</router-link></a></li>
             <li><a><router-link to="SelectPaperForm">적용 서류<br> 선택</router-link></a></li>
@@ -21,6 +21,7 @@ export default {
         const route = useRoute()
         const path = computed(()=> route.path)
         const { onLogOutClick, userObjDelete } = getAuth();
+        
         return {
             path,
             onLogOutClick,
@@ -65,7 +66,7 @@ export default {
         &:hover a {
             color: #d94f5c;
         }
-        a .active {
+        a .router-link-active {
             color: #d94f5c;
         }
         &:not(:last-child) {

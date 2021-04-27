@@ -1,15 +1,17 @@
 import { onMounted, reactive, ref } from 'vue'
 import { authService } from '../plugins/fbase'
+import { useStore } from 'vuex'
 import router from '../router'
 
 const getAuth = () => {
+    const store = useStore()
     const init = ref(false)
     const userObj = reactive({
         displayName: '',
         uid: '',
         updateProfile: () => {},
     })
-    const setInit = ( initState ) => init.value=initState
+    const setInit = ( initState ) => init.value= initState
     const setUserObj = ( userObj_ ) => {
         userObj.displayName = userObj_.displayName
         userObj.uid = userObj_.uid
@@ -46,6 +48,7 @@ const getAuth = () => {
                     uid: user.uid,
                     updateProfile: ( args ) => user.updateProfile(args),
                 })
+                store.dispatch('setUserAction',userObj)
                 router.push({name:'Home'})
             } else {
                 setUserObj({
@@ -53,6 +56,7 @@ const getAuth = () => {
                     uid: '',
                     updateProfile: () => {},
                 })
+                store.dispatch('setUserAction',userObj)
                 router.push({name:'Auth'})
             }
         })
