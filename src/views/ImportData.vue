@@ -1,9 +1,10 @@
 <template>
-    <div class="if-data-false">
+    <div class="if-data-false" v-if="dragAndDropBtn">
         <div id="drop" @drop="handleDrop" @dragover="handleDragover" @dragenter="handleDragover">Drop Here</div>
     </div>
-    <div class="row">
-        <vue-scrolling-table>
+    <div class="if-data-true" v-else>
+        <h2 class="table-title">사용할 데이터 목록</h2>
+        <vue-scrolling-table >
             <template #thead>
             <tr>
                 <th v-for="(col,idx) in headers"
@@ -19,15 +20,19 @@
             </tr>
             </template>
             </vue-scrolling-table>
+            <div class="btn-container">
+                <button class="data-btn" @click="resetData"> 초기화</button>
+            </div>
         </div>
 </template>
 <script>
-import { reactive } from 'vue'
+import { reactive,ref } from 'vue'
 import XLSX from 'xlsx'
 
 export default {
     
     setup(){
+        const dragAndDropBtn= ref(true)
         let tickets = reactive([])
         let headers = reactive([])
 
@@ -55,6 +60,7 @@ export default {
                 });
                 };
                 reader.readAsArrayBuffer(f);
+                dragAndDropBtn.value = false
             }
         }
         const handleDragover = ( e ) => {
@@ -79,12 +85,18 @@ export default {
             o+=String.fromCharCode.apply(null, new Uint8Array(data.slice(l*w)));
             return o;
         }
-        
+        const resetData = () => {
+            tickets.length= 0;
+            headers.length= 0;
+            dragAndDropBtn.value= true
+        }
         return {
             tickets,
             headers,
             handleDrop,
-            handleDragover
+            handleDragover,
+            dragAndDropBtn,
+            resetData
         }
     }
 }
@@ -106,6 +118,33 @@ export default {
         color: black;
         opacity: .95;
     }
+    .if-data-true {
+        background: #fff;
+        padding: 5px;
+        color: black;
+        // width: 210mm;
+        .table-title {
+            word-spacing: 7px;
+        }
+        .btn-container {
+            margin: 5px;
+            .data-btn {
+                width: 100px;
+                font-size: 18px;
+                font-weight: 600;
+                padding: 6px;
+                margin:10px;
+                outline: none;
+                border: 1px solid #CFD8DC;
+                border-radius: 5px;
+                background: #fff;
+                cursor: pointer;
+                &:hover {
+                    border: 1px solid #EF5350;
+                }
+            }
+        }
+    }
     #drop{
         border: 2px dashed #bbb;
         -moz-border-radius: 5px;
@@ -116,7 +155,5 @@ export default {
         font: 20pt bold,"Vollkorn";
         color: #bbb;
     }
-    .tableOption {
-        color: black;
-    }
+    
 </style>
