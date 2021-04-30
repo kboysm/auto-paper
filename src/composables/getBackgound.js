@@ -8,7 +8,7 @@ import { ClearPass } from 'three/examples/jsm/postprocessing/ClearPass.js';
 import { MaskPass, ClearMaskPass } from 'three/examples/jsm/postprocessing/MaskPass.js';
 import { CopyShader } from 'three/examples/jsm/shaders/CopyShader.js';
 
-const getBackground = ( stopAnimation= true) => {
+const getBackground = () => {
     let camera, composer, renderer;
     let torus1, torus2;
     let animateId, rendererDom
