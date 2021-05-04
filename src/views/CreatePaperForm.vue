@@ -3,20 +3,43 @@
         <div class="options-box">
             option- box
         </div>
-        <div class="create-paper page">
+        <div class="create-paper page" :style="reportCss">
+            <font-awesome-icon :icon="['fas', 'bars']" class="icon-menu" />
             <div class="subpage" id="content">
                 createPaper
             </div>
         </div>
-        <div class="preview-paper page">
-            <div class="subpage" id="content">
+        <div class="preview-paper page" :style="reportCss">
+            <div class="subpage" id="content" :style="contentCss">
                 previewPaper
             </div>
         </div>
     </div>
 </template>
+<script>
+import { reactive } from 'vue'
+
+    export default {
+        
+        setup() {
+            const reportCss= reactive({
+                paddingTop: '2cm',
+                PaddingBottom: '2cm',
+                paddingLeft: '2cm',
+                paddingRight: '2cm',
+            })
+            const contentCss= reactive({
+                border: '1px solid red'
+            })
+            return {
+                reportCss,
+                contentCss
+            }
+        }
+    }
+</script>
 <style lang="scss" scoped>
- create-paper-container {
+        create-paper-container {
             margin: 0;
             padding: 0;
             font: 12pt "Tahoma";
@@ -30,7 +53,7 @@
             margin: 1cm;
             width: 21cm;
             min-height: 29.7cm;
-            padding: 2cm;
+            // padding: 2cm;
             // margin: 1cm auto;
             border-radius: 5px;
             background: white;
@@ -58,5 +81,9 @@
                 page-break-after: always;
             }
         }
-
+        .icon-menu {
+            color: black;
+            cursor: pointer;
+            float: left;
+        }
 </style>

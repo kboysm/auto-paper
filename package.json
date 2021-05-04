@@ -11,6 +11,9 @@
     "docker-run": "docker run -it -p 8080:8080 --rm --name dockerize-vuejs-app-1 auto-paper/dockerize-vuejs-app"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.35",
+    "@fortawesome/free-solid-svg-icons": "^5.15.3",
+    "@fortawesome/vue-fontawesome": "^3.0.0-3",
     "browserslist": "^4.16.4",
     "caniuse-lite": "^1.0.30001211",
     "core-js": "^3.6.5",
