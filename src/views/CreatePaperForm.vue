@@ -1,17 +1,68 @@
 <template>
     <div class="create-paper-container">
-        <div class="options-box">
-            option- box
-        </div>
-        <div class="create-paper page" :style="reportCss">
-            <font-awesome-icon :icon="['fas', 'bars']" class="icon-menu" />
-            <div class="subpage" id="content">
-                createPaper
-            </div>
-        </div>
         <div class="preview-paper page" :style="reportCss">
-            <div class="subpage" id="content" :style="contentCss">
-                previewPaper
+            <div class="subpage" id="content">
+                <table border="1" class="paper-table">
+                    <tr>
+                        <td colspan="5">d</td>
+                    </tr>
+                    <tr>
+                        <td>d</td>
+                        <td>b</td>
+                        <td>b</td>
+                        <td>b</td>
+                        <td>b</td>
+                    </tr>
+                    <tr>
+                        <td>d</td>
+                        <td>b</td>
+                        <td>b</td>
+                        <td>b</td>
+                        <td>b</td>
+                    </tr>
+                    <tr>
+                        <td>d</td>
+                        <td>b</td>
+                        <td>b</td>
+                        <td>b</td>
+                        <td>b</td>
+                    </tr>
+                    <tr>
+                        <td>d</td>
+                        <td>b</td>
+                        <td>b</td>
+                        <td>b</td>
+                        <td>b</td>
+                    </tr>
+                    <tr>
+                        <td>d</td>
+                        <td>b</td>
+                        <td>b</td>
+                        <td>b</td>
+                        <td>b</td>
+                    </tr>
+                    <tr>
+                        <td>d</td>
+                        <td>b</td>
+                        <td>b</td>
+                        <td>b</td>
+                        <td>b</td>
+                    </tr>
+                    <tr>
+                        <td>d</td>
+                        <td>b</td>
+                        <td>b</td>
+                        <td>b</td>
+                        <td>b</td>
+                    </tr>
+                    <tr>
+                        <td>d</td>
+                        <td>b</td>
+                        <td>b</td>
+                        <td>b</td>
+                        <td>b</td>
+                    </tr>
+                </table>
             </div>
         </div>
     </div>
@@ -20,7 +71,6 @@
 import { reactive } from 'vue'
 
     export default {
-        
         setup() {
             const reportCss= reactive({
                 paddingTop: '2cm',
@@ -60,9 +110,14 @@ import { reactive } from 'vue'
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
         }
         .subpage {
-            padding: 1cm;
+            // padding: 1cm;
             height: 256mm;
             color: black;
+            .paper-table {
+                width:100%;
+                height: 100%;
+                border-collapse: collapse;
+            }
         }
         @page {
             size: A4 landscape;
