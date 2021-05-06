@@ -4,54 +4,73 @@
             <div class="subpage" id="content">
                 <table border="1" class="paper-table">
                     <tr>
-                        <td colspan="5">계약갱신요구권 행사 여부 확인서</td>
+                        <td colspan="5" class="paper-title"> 
+                            <span>
+                                계약갱신요구권 행사 여부 확인서
+                            </span> 
+                        </td>
                     </tr>
                     <tr>
-                        <td rowspan="2">입대인<br>(매도인)</td>
-                        <td>성명</td>
-                        <td></td>
-                        <td>주민등록번호</td>
-                        <td></td>
+                        <td class="option-title" rowspan="2">임대인<br>(매도인)</td>
+                        <td class="option option-name-label">성명</td>
+                        <td class="option option-name"></td>
+                        <td class="option option-personal-number-label">주민등록번호</td>
+                        <td class="option option-personal-number"></td>
                     </tr>
                     <tr>
-                        <td>주소</td>
-                        <td colspan="3"> </td>
+                        <td class="option option-address-label">주소</td>
+                        <td class="option" colspan="3"> </td>
                     </tr>
                     <tr>
-                        <td>목적물</td>
-                        <td colspan="4">d</td>
+                        <td class="option-title option-purpose-label">목적물</td>
+                        <td class="option option-purpose" colspan="4"></td>
                     </tr>
                     <tr>
-                        <td rowspan="5">여기</td>
-                        <td>기행사</td>
-                        <td>[ ]</td>
-                        <td>임대차 기간</td>
-                        <td>b</td>
+                        <td class="option-title" rowspan="5">계약갱신요구권 행사 여부</td>
+                        <td class="option option-exercise-label">기행사</td>
+                        <td class="option option-select">[ ]</td>
+                        <td class="option option-term-label">임대차 기간</td>
+                        <td class="option"></td>
                     </tr>
                     <tr>
-                        <td rowspan="2">행사</td>
-                        <td>[ ]</td>
-                        <td>현재 임대차 기간</td>
-                        <td>b</td>
+                        <td class="option-exercise-label" rowspan="2">행사</td>
+                        <td class="option option-select" rowspan="2">[ ]</td>
+                        <td class="option option-term-label">현재 임대차 기간</td>
+                        <td class="option"></td>
                     </tr>
                     <tr>
-                        <td>[ ]</td>
-                        <td>갱신 후 임대차 기간</td>
-                        <td>b</td>
+                        <td class="option option-term-label">갱신 후 임대차 기간</td>
+                        <td class="option"></td>
                     </tr>
                     <tr>
-                        <td>불행사</td>
+                        <td class="option option-exercise-label">불행사</td>
                         <td colspan="3">[ ]</td>
                     </tr>
                     <tr>
-                        <td>미결정</td>
+                        <td class="option option-exercise-label">미결정</td>
                         <td colspan="3">[ ]</td>
                     </tr>
                     <tr>
-                        <td colspan="5">asdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasd</td>
+                        <td class="option-warning" colspan="5">
+                                    계약갱신요구권 행사는 임대차기간이 끝나기 6개월 전부터 1개월 전까지의 기간에 가능 (단,
+                                    '20.12.10' 이후 최초로 체결되거나 갱신될 계약에 대한 계약갱신요구권 행사는 임대차 기간이 끝나기 6개월 전부터 2개월 전까지의 기간에 가능)
+                                
+                        </td>
                     </tr>
                     <tr>
-                        <td colspan="5">asdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasd</td>
+                        <td class="last-option" colspan="5">
+                            <div class="last-option-1">
+                                임대인(매도인)은 위 내용이 사실과 틀림없음을 확인합니다.
+                            </div>
+                            <br><br><br>
+                            <div class="last-option-2">
+                                년 월 일
+                            </div>
+                            <br><br><br>
+                            <div class="last-option-3">
+                                확인자 : 임대인(매도인) 홍 길 동 (서명 또는 인)
+                            </div>
+                        </td>
                     </tr>
                 </table>
             </div>
@@ -108,6 +127,53 @@ import { reactive } from 'vue'
                 width:100%;
                 height: 100%;
                 border-collapse: collapse;
+                .paper-title{
+                    height: 70px;
+                    background-color:  #bebebe;
+                    font-size: 25px;
+                    font-weight: 800;
+                }
+                .option-title {
+                    width: 120px;
+                    background-color: #d7e4ff;
+                }
+                .option {
+                    height: 50px;
+                }
+                .option-name-label , .option-address-label {
+                    width:50px;
+                }
+                .option-name {
+                    width:120px;
+                }
+                .option-personal-number {
+                    width:200px;
+                }
+                .option-personal-number-label {
+                    width:120px;
+                }
+                .option-purpose , .option-purpose-label {
+                    height: 80px;
+                }
+                .option-exercise-label {
+                    width:120px;
+                }
+                .option-term-label {
+                    width:200px;
+                }
+                .option-warning {
+                    padding-left: 10px;
+                    height: 120px;
+                }
+                .last-option {
+                    text-align: right;
+                    padding-right: 10px;
+                    font-size: 20px;
+                    font-weight: 600;
+                }
+                // .last-option-1 , .last-option-2 , .last-option-3 {
+                    
+                // }
             }
         }
         @page {
