@@ -4,63 +4,54 @@
             <div class="subpage" id="content">
                 <table border="1" class="paper-table">
                     <tr>
-                        <td colspan="5">d</td>
+                        <td colspan="5">계약갱신요구권 행사 여부 확인서</td>
                     </tr>
                     <tr>
-                        <td>d</td>
-                        <td>b</td>
-                        <td>b</td>
-                        <td>b</td>
-                        <td>b</td>
+                        <td rowspan="2">입대인<br>(매도인)</td>
+                        <td>성명</td>
+                        <td></td>
+                        <td>주민등록번호</td>
+                        <td></td>
                     </tr>
                     <tr>
-                        <td>d</td>
-                        <td>b</td>
-                        <td>b</td>
-                        <td>b</td>
-                        <td>b</td>
+                        <td>주소</td>
+                        <td colspan="3"> </td>
                     </tr>
                     <tr>
-                        <td>d</td>
-                        <td>b</td>
-                        <td>b</td>
-                        <td>b</td>
-                        <td>b</td>
+                        <td>목적물</td>
+                        <td colspan="4">d</td>
                     </tr>
                     <tr>
-                        <td>d</td>
-                        <td>b</td>
-                        <td>b</td>
-                        <td>b</td>
+                        <td rowspan="5">여기</td>
+                        <td>기행사</td>
+                        <td>[ ]</td>
+                        <td>임대차 기간</td>
                         <td>b</td>
                     </tr>
                     <tr>
-                        <td>d</td>
-                        <td>b</td>
-                        <td>b</td>
-                        <td>b</td>
-                        <td>b</td>
-                    </tr>
-                    <tr>
-                        <td>d</td>
-                        <td>b</td>
-                        <td>b</td>
-                        <td>b</td>
+                        <td rowspan="2">행사</td>
+                        <td>[ ]</td>
+                        <td>현재 임대차 기간</td>
                         <td>b</td>
                     </tr>
                     <tr>
-                        <td>d</td>
-                        <td>b</td>
-                        <td>b</td>
-                        <td>b</td>
+                        <td>[ ]</td>
+                        <td>갱신 후 임대차 기간</td>
                         <td>b</td>
                     </tr>
                     <tr>
-                        <td>d</td>
-                        <td>b</td>
-                        <td>b</td>
-                        <td>b</td>
-                        <td>b</td>
+                        <td>불행사</td>
+                        <td colspan="3">[ ]</td>
+                    </tr>
+                    <tr>
+                        <td>미결정</td>
+                        <td colspan="3">[ ]</td>
+                    </tr>
+                    <tr>
+                        <td colspan="5">asdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasd</td>
+                    </tr>
+                    <tr>
+                        <td colspan="5">asdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasd</td>
                     </tr>
                 </table>
             </div>
