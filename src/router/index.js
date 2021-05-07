@@ -23,10 +23,10 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/Auth.vue')
   },
   {
-    path: '/CreatePaperForm',
-    name: 'CreatePaperForm',
+    path: '/ResultConfirm',
+    name: 'ResultConfirm',
     // beforeEnter,
-    component: () => import(/* webpackChunkName: "about" */ '../views/CreatePaperForm.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/ResultConfirm.vue')
   },
   {
     path: '/ImportData',

@@ -44,11 +44,11 @@
                     </tr>
                     <tr>
                         <td class="option option-exercise-label">불행사</td>
-                        <td colspan="3">[ ]</td>
+                        <td colspan="3" style="text-align:left; padding-left:43px;">[ ]</td>
                     </tr>
                     <tr>
                         <td class="option option-exercise-label">미결정</td>
-                        <td colspan="3">[ ]</td>
+                        <td colspan="3" style="text-align:left; padding-left:43px;">[ ]</td>
                     </tr>
                     <tr>
                         <td class="option-warning" colspan="5">
@@ -78,10 +78,11 @@
     </div>
 </template>
 <script>
-import { reactive } from 'vue'
+import { computed, reactive } from 'vue'
 
     export default {
-        setup() {
+        
+        setup( props ) {
             const reportCss= reactive({
                 paddingTop: '2cm',
                 PaddingBottom: '2cm',
@@ -91,9 +92,10 @@ import { reactive } from 'vue'
             const contentCss= reactive({
                 border: '1px solid red'
             })
+            const paperKey = ['성명','주민등록번호','주소','목적물','계약권 행사 여부','임대차기간','현재임대차기간','갱신후임대차기간']
             return {
                 reportCss,
-                contentCss
+                contentCss,
             }
         }
     }

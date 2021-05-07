@@ -2,14 +2,14 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
-    userState: JSON.parse(localStorage.getItem('userState')) | 
+    userState: JSON.parse(localStorage.getItem('userState')) || 
     {
       displayName: '',
       uid: '',
       updateProfile: () => {},
     },
-    tickets: JSON.parse(localStorage.getItem('tickets')) | null,
-    headers: JSON.parse(localStorage.getItem('headers')) | null,
+    tickets: JSON.parse(localStorage.getItem('tickets')) || null,
+    headers: JSON.parse(localStorage.getItem('headers')) || null,
   },
   mutations: {
     setUserLogin ( state, userLoginState ) {

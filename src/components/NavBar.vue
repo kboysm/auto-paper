@@ -2,9 +2,9 @@
     <nav>
         <ul class="menu" v-if="path !== '/Auth'">
             <li><a><router-link to="/">홈</router-link></a></li>
-            <li><a><router-link to="/CreatePaperForm">서류생성</router-link></a></li>
             <li><a><router-link to="/ImportData">데이터<br>불러오기</router-link></a></li>
             <li><a><router-link to="SelectPaperForm">적용 서류<br> 선택</router-link></a></li>
+            <li><a><router-link to="/ResultConfirm">결과&인쇄</router-link></a></li>
             <li><a id="AuthLogOut" @click="onLogOutClick">로그아웃</a></li>
             <li><a id="AuthUserDelete" @click="userObjDelete">계정삭제</a></li> <!-- test용 버튼 삭제 예정 -->
         </ul>
