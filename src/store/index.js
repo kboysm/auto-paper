@@ -10,6 +10,7 @@ export default createStore({
     },
     tickets: JSON.parse(localStorage.getItem('tickets')) || null,
     headers: JSON.parse(localStorage.getItem('headers')) || null,
+    selectedPaper:''
   },
   mutations: {
     setUserLogin ( state, userLoginState ) {
@@ -24,6 +25,9 @@ export default createStore({
       state.headers = headers
       localStorage.setItem('headers', JSON.stringify(headers))
     },
+    setSelectedPaper ( state, paperName ) {
+      state.selectedPaper = paperName
+    }
   },
   actions: {
     setUserAction ({ commit }, userLoginState) {
@@ -35,6 +39,9 @@ export default createStore({
     setHeadersAction ({ commit }, headers ) {
       commit('setHeaders', headers)
     },
+    setSelectedPaperAction ({ commit }, paperName ) {
+      commit('setSelectedPaper', paperName)
+    }
   },
   getters: {
     getUser ( state ) {
@@ -45,6 +52,9 @@ export default createStore({
     },
     getHeaders ( state ) {
       return state.headers
+    },
+    getSelectedPaper ( state ) {
+      return state.selectedPaper
     }
   },
   modules: {
