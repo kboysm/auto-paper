@@ -13,42 +13,42 @@
                     <tr>
                         <td class="option-title" rowspan="2">임대인<br>(매도인)</td>
                         <td class="option option-name-label">성명</td>
-                        <td class="option option-name"></td>
+                        <td class="option option-name">{{ resultObj["성명"] }}</td>
                         <td class="option option-personal-number-label">주민등록번호</td>
-                        <td class="option option-personal-number"></td>
+                        <td class="option option-personal-number">{{ resultObj["주민등록번호"] }}</td>
                     </tr>
                     <tr>
                         <td class="option option-address-label">주소</td>
-                        <td class="option" colspan="3"> </td>
+                        <td class="option" colspan="3">{{ resultObj["주소"] }}</td>
                     </tr>
                     <tr>
                         <td class="option-title option-purpose-label">목적물</td>
-                        <td class="option option-purpose" colspan="4"></td>
+                        <td class="option option-purpose" colspan="4">{{ resultObj["목적물"] }}</td>
                     </tr>
                     <tr>
                         <td class="option-title" rowspan="5">계약갱신요구권 행사 여부</td>
                         <td class="option option-exercise-label">기행사</td>
-                        <td class="option option-select">[ ]</td>
+                        <td class="option option-select">[ {{ resultObj["계약권 행사 여부"] === '기행사' ? '&#x2713;':''}} ]</td>
                         <td class="option option-term-label">임대차 기간</td>
-                        <td class="option"></td>
+                        <td class="option">{{ resultObj["임대차기간"] }}</td>
                     </tr>
                     <tr>
                         <td class="option-exercise-label" rowspan="2">행사</td>
-                        <td class="option option-select" rowspan="2">[ ]</td>
+                        <td class="option option-select" rowspan="2">[ {{ resultObj["계약권 행사 여부"] === '행사' ? '&#x2713;':''}} ]</td>
                         <td class="option option-term-label">현재 임대차 기간</td>
-                        <td class="option"></td>
+                        <td class="option">{{ resultObj["현재임대차기간"]}}</td>
                     </tr>
                     <tr>
                         <td class="option option-term-label">갱신 후 임대차 기간</td>
-                        <td class="option"></td>
+                        <td class="option">{{ resultObj["갱신후임대차기간"]}}</td>
                     </tr>
                     <tr>
                         <td class="option option-exercise-label">불행사</td>
-                        <td colspan="3" style="text-align:left; padding-left:43px;">[ ]</td>
+                        <td colspan="3" style="text-align:left; padding-left:43px;">[ {{ resultObj["계약권 행사 여부"] === '불행사' ? '&#x2713;':''}} ]</td>
                     </tr>
                     <tr>
                         <td class="option option-exercise-label">미결정</td>
-                        <td colspan="3" style="text-align:left; padding-left:43px;">[ ]</td>
+                        <td colspan="3" style="text-align:left; padding-left:43px;">[ {{ resultObj["계약권 행사 여부"] === '미결정' ? '&#x2713;':''}} ]</td>
                     </tr>
                     <tr>
                         <td class="option-warning" colspan="5">
@@ -63,12 +63,11 @@
                                 임대인(매도인)은 위 내용이 사실과 틀림없음을 확인합니다.
                             </div>
                             <br><br><br>
-                            <div class="last-option-2">
-                                년 월 일
+                            <div class="last-option-2">{{ getDate() }}
                             </div>
                             <br><br><br>
                             <div class="last-option-3">
-                                확인자 : 임대인(매도인) 홍 길 동 (서명 또는 인)
+                                확인자 : 임대인(매도인) {{ resultObj["성명"].split("").join(' ') }} (서명 또는 인)
                             </div>
                         </td>
                     </tr>
@@ -78,10 +77,11 @@
     </div>
 </template>
 <script>
-import { computed, reactive } from 'vue'
+import { computed, reactive, inject } from 'vue'
+import moment from 'moment'
 
     export default {
-        
+        props:['resultObj'],
         setup( props ) {
             const reportCss= reactive({
                 paddingTop: '2cm',
@@ -93,9 +93,14 @@ import { computed, reactive } from 'vue'
                 border: '1px solid red'
             })
             const paperKey = ['성명','주민등록번호','주소','목적물','계약권 행사 여부','임대차기간','현재임대차기간','갱신후임대차기간']
+            const getDate = () => {
+                return moment().format('YYYY년 MM월 D일')
+            }
             return {
                 reportCss,
                 contentCss,
+                getDate
+                
             }
         }
     }
