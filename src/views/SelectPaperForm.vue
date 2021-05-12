@@ -1,9 +1,8 @@
 <template>
     <div class="container">
-      {{selectedPaper}}
         <div class="drop-down-paper-list">
             <label class="select" for="slct">
-            <select id="slct" required="required">
+            <select id="slct" required="required" v-model="cloneSelectedPaper">
                 <option value="" disabled="disabled" selected="selected">서류 선택</option>
                 <option @click="updateSelectedPaper('계약권갱신요구권')">계약갱신요구권 행사 여부 확인서</option>
                 <option @click="updateSelectedPaper('test1')">test1</option>
@@ -27,7 +26,7 @@
 </template>
 <script>
 import DocumentTypeA from '@/components/paper/DocumentTypeA'
-import { computed } from 'vue'
+import { computed, onMounted, ref, watch } from 'vue'
 import { useStore } from 'vuex'
 export default {
     components: {
@@ -35,11 +34,19 @@ export default {
     },
     setup() {
       const store = useStore()
+      const updateSelectedPaper = ( newPaperName ) => store.dispatch('setSelectedPaperAction', newPaperName)
       const selectedPaper = computed(()=> store.state.selectedPaper )
-      const updateSelectedPaper = () => store.dispatch('setSelectedPaperAction', 'asdasd')
+      const cloneSelectedPaper = ref('')
+      watch(cloneSelectedPaper, (newValue, oldValue)=>{
+        updateSelectedPaper(newValue)
+      })
+      onMounted(()=> {
+        cloneSelectedPaper.value = JSON.parse(localStorage.getItem('selectedPaper'))
+      })
       return {
         selectedPaper,
-        updateSelectedPaper
+        updateSelectedPaper,
+        cloneSelectedPaper
       }
     }
 }

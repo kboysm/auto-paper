@@ -27,6 +27,7 @@ export default createStore({
     },
     setSelectedPaper ( state, paperName ) {
       state.selectedPaper = paperName
+      localStorage.setItem('selectedPaper', JSON.stringify(paperName))
     }
   },
   actions: {
@@ -40,7 +41,6 @@ export default createStore({
       commit('setHeaders', headers)
     },
     setSelectedPaperAction ({ commit }, paperName ) {
-      console.log('test' , paperName)
       commit('setSelectedPaper', paperName)
     }
   },
