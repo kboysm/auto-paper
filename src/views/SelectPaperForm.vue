@@ -1,11 +1,15 @@
 <template>
     <div class="container">
+      {{selectedPaper}}
         <div class="drop-down-paper-list">
             <label class="select" for="slct">
             <select id="slct" required="required">
                 <option value="" disabled="disabled" selected="selected">서류 선택</option>
-                <option value="#">계약갱신요구권 행사 여부 확인서</option>
-                <option value="#">영수증</option>
+                <option @click="updateSelectedPaper('계약권갱신요구권')">계약갱신요구권 행사 여부 확인서</option>
+                <option @click="updateSelectedPaper('test1')">test1</option>
+                <option @click="updateSelectedPaper('test2')">test2</option>
+                <option @click="updateSelectedPaper('test3')">test3</option>
+                <option @click="updateSelectedPaper('test4')">test4</option>
             </select>
             <svg>
                 <use xlink:href="#select-arrow-down"></use>
@@ -18,15 +22,30 @@
             </symbol>
             </svg>
         </div>
-
+        <document-type-a v-if="selectedPaper === '계약갱신요구권 행사 여부 확인서'"/>
     </div>
 </template>
 <script>
+import DocumentTypeA from '@/components/paper/DocumentTypeA'
+import { computed } from 'vue'
+import { useStore } from 'vuex'
 export default {
-    
+    components: {
+      DocumentTypeA
+    },
+    setup() {
+      const store = useStore()
+      const selectedPaper = computed(()=> store.state.selectedPaper )
+      const updateSelectedPaper = () => store.dispatch('setSelectedPaperAction', 'asdasd')
+      return {
+        selectedPaper,
+        updateSelectedPaper
+      }
+    }
 }
 </script>
 <style lang="scss" scoped>
+
 .drop-down-paper-list{
   display: flex;
   justify-content: center;

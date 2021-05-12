@@ -40,6 +40,7 @@ export default createStore({
       commit('setHeaders', headers)
     },
     setSelectedPaperAction ({ commit }, paperName ) {
+      console.log('test' , paperName)
       commit('setSelectedPaper', paperName)
     }
   },

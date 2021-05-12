@@ -14,11 +14,8 @@ export default {
     setup() {
         const store = useStore()
         const resultObj = computed(()=> store.state.tickets )
-        const resultObj0 = computed(()=> store.state.headers )
-        console.log(resultObj[0])
         return {
-            resultObj,
-            resultObj0
+            resultObj
         }
     }
 }
