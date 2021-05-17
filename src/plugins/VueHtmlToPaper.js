@@ -18,7 +18,9 @@ function addStyles(win, styles) {
         let defaultName = "_blank",
           defaultSpecs = ["fullscreen=yes", "titlebar=yes", "scrollbars=yes"],
           defaultReplace = true,
-          defaultStyles = [];
+          defaultStyles = [
+            "./test.css"
+          ];
         let {
           name = defaultName,
           specs = defaultSpecs,
