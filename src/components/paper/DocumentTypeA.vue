@@ -13,17 +13,17 @@
                     <tr>
                         <td class="option-title" rowspan="2">임대인<br>(매도인)</td>
                         <td class="option option-name-label">성명</td>
-                        <td class="option option-name">{{ resultObj["성명"] }}</td>
+                        <td class="option option-name">{{ resultObj["성명"] ? resultObj["성명"] : ''  }}</td>
                         <td class="option option-personal-number-label">주민등록번호</td>
                         <td class="option option-personal-number">{{ resultObj["주민등록번호"] }}</td>
                     </tr>
                     <tr>
                         <td class="option option-address-label">주소</td>
-                        <td class="option" colspan="3">{{ resultObj["주소"] }}</td>
+                        <td class="option" colspan="3">{{ resultObj["주소"] ? resultObj["주소"] : '' }}</td>
                     </tr>
                     <tr>
                         <td class="option-title option-purpose-label">목적물</td>
-                        <td class="option option-purpose" colspan="4">{{ resultObj["목적물"] }}</td>
+                        <td class="option option-purpose" colspan="4">{{ resultObj["목적물"] ? resultObj["목적물"] : '' }}</td>
                     </tr>
                     <tr>
                         <td class="option-title" rowspan="5">계약갱신요구권 행사 여부</td>
@@ -67,7 +67,7 @@
                             </div>
                             <br><br><br>
                             <div class="last-option-3">
-                                확인자 : 임대인(매도인) {{ resultObj["성명"].split("").join(' ') }} (서명 또는 인)
+                                확인자 : 임대인(매도인) {{  resultObj["성명"] ? resultObj["성명"].split("").join(' ') : ''}} (서명 또는 인)
                             </div>
                         </td>
                     </tr>

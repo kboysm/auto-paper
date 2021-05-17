@@ -21,7 +21,7 @@
             </symbol>
             </svg>
         </div>
-        <document-type-a v-if="selectedPaper === '계약갱신요구권 행사 여부 확인서'"/>
+        <document-type-a :resultObj="resultObj" v-if="selectedPaper === '계약갱신요구권 행사 여부 확인서'"/>
     </div>
 </template>
 <script>
@@ -37,6 +37,16 @@ export default {
       const updateSelectedPaper = ( newPaperName ) => store.dispatch('setSelectedPaperAction', newPaperName)
       const selectedPaper = computed(()=> store.state.selectedPaper )
       const cloneSelectedPaper = ref('')
+      const resultObj = {
+        '성명':'',
+        '주민등록번호':'',
+        '주소':'',
+        '목적물':'',
+        '계약권 행사 여부':'',
+        '임대차기간':'',
+        '현재임대차기간':'',
+        '갱신후임대차기간':'',
+      }
       watch(cloneSelectedPaper, (newValue, oldValue)=>{
         updateSelectedPaper(newValue)
       })
@@ -49,7 +59,8 @@ export default {
       return {
         selectedPaper,
         updateSelectedPaper,
-        cloneSelectedPaper
+        cloneSelectedPaper,
+        resultObj
       }
     }
 }
