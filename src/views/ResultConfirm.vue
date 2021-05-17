@@ -1,6 +1,6 @@
 <template>
 <button @click="print">print</button>
-    <div id="printMe">
+    <div id="printMe" >
         <div v-for=" (item , index) in resultObj" :key="index">
             <DocumentTypeA :resultObj="item" />
         </div>
