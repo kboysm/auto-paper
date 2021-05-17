@@ -23,6 +23,7 @@
     "particles.vue3": "^1.9.3",
     "three": "^0.127.0",
     "vue": "^3.0.0",
+    "vue-html-to-paper": "^1.4.1",
     "vue-router": "^4.0.0-0",
     "vue-scrolling-table": "^1.0.4",
     "vuex": "^4.0.0-0",

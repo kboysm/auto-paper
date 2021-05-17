@@ -1,6 +1,9 @@
 <template>
-    <div v-for=" (item , index) in resultObj" :key="index">
-        <DocumentTypeA :resultObj="item" />
+<button @click="print">print</button>
+    <div  id="printMe">
+        <div v-for=" (item , index) in resultObj" :key="index">
+            <DocumentTypeA :resultObj="item" />
+        </div>
     </div>
 </template>
 <script>
@@ -14,8 +17,14 @@ export default {
     setup() {
         const store = useStore()
         const resultObj = computed(()=> store.state.tickets )
+
         return {
-            resultObj
+            resultObj,
+        }
+    },
+    methods:{
+        print() {
+            this.$htmlToPaper('printMe')
         }
     }
 }

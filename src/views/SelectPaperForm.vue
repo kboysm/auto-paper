@@ -41,7 +41,10 @@ export default {
         updateSelectedPaper(newValue)
       })
       onMounted(()=> {
-        cloneSelectedPaper.value = JSON.parse(localStorage.getItem('selectedPaper'))
+        const selectedItem = JSON.parse(localStorage.getItem('selectedPaper'))
+        if( selectedItem ) {
+          cloneSelectedPaper.value = selectedItem
+        }
       })
       return {
         selectedPaper,
