@@ -1,87 +1,3 @@
-/* .create-paper-container {
-    margin: 0;
-    padding: 0;
-    font: 12pt "Tahoma";
-}
-
-* {
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-}
-.page {
-    display: inline-block;
-    margin: 1cm;
-    width: 21cm;
-    min-height: 29.7cm;
-    // padding: 2cm;
-    // margin: 1cm auto;
-    border-radius: 5px;
-    background: white;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-}
-.subpage {
-    // padding: 1cm;
-    height: 256mm;
-    color: black;
-}
-.paper-table {
-    width:100%;
-    height: 100%;
-    border-collapse: collapse;
-    // .last-option-1 , .last-option-2 , .last-option-3 {
-        
-    // }
-}
-.paper-title{
-    height: 70px;
-    background-color:  #bebebe;
-    font-size: 25px;
-    font-weight: 800;
-}
-.option-title {
-    width: 120px;
-    background-color: #d7e4ff;
-}
-.option {
-    height: 50px;
-}
-.option-name-label , .option-address-label {
-    width:50px;
-}
-.option-name {
-    width:120px;
-}
-.option-personal-number {
-    width:200px;
-}
-.option-personal-number-label {
-    width:120px;
-}
-.option-purpose , .option-purpose-label {
-    height: 80px;
-}
-.option-exercise-label {
-    width:120px;
-}
-.option-term-label {
-    width:200px;
-}
-.option-warning {
-    padding-left: 10px;
-    height: 120px;
-}
-.last-option {
-    text-align: right;
-    padding-right: 10px;
-    font-size: 20px;
-    font-weight: 600;
-} */
-/* @page {
-    size: A4 landscape;
-    width: 210mm; 
-    height: 296mm;
-    margin: 0;
-} */
 @media print {
     .create-paper-container {
         margin: 0;
@@ -103,7 +19,11 @@
         background: initial;
         page-break-after: always;
     }
-   
+
+    table {
+        text-align: center;
+    }
+
     .subpage {
         // padding: 1cm;
         height: 256mm;
@@ -155,6 +75,12 @@
     .option-warning {
         padding-left: 10px;
         height: 120px;
+    }
+    .last-option {
+        text-align: right;
+        padding-right: 10px;
+        font-size: 20px;
+        font-weight: 600;
     }
 }
 .icon-menu {
