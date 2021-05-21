@@ -2,9 +2,21 @@
     <div class="create-paper-container">
         <div class="preview-paper page">
             <div class="subpage">
-                <div class="papaerName">
-                    임 대 계 약 해 지 확 인 서
+                <div class="paperName">
+                    <span class="paperName-span">
+                        임 대 계 약 해 지 확 인 서
+                    </span><br>
+                    <div class="paperName-underline">
+                        <div class="underline-1">
+                        </div>
+                        <div class="underline-2">
+                        </div>
+                    </div>
                 </div>
+                <div class="subPaperName">
+                    - 합 의 서 -
+                </div>
+                
             </div>
         </div>
     </div>
@@ -43,17 +55,36 @@
             // padding: 1cm;
             height: 256mm;
             color: black;
-            .paper-table {
-                width:100%;
-                height: 100%;
-                border-collapse: collapse;
-                .paper-title{
-                    height: 70px;
-                    background-color:  #bebebe;
-                    font-size: 25px;
-                    font-weight: 800;
+            padding: 1.5cm;
+            .paperName {
+                font-size: 30px;
+                font-weight: 550;
+                
+                .paperName-underline {
+                    // border: 1px solid black;
+                    .underline-1 {
+                        background-color: gray;
+                        padding: 1px;
+                        margin-bottom:10px;
+                        // margin-bottom:16px;
+                        display: inline-block;
+                        width:9.5cm;
+                    }
+                    .underline-2 {
+                        background-color: black;
+                        margin-bottom:25px;
+                        padding: 1px;
+                        display: inline-block;
+                        width:9.5cm;
+                    }
+                    
                 }
             }
+            .subPaperName {
+                font-weight: 530;
+                font-size: 30px;
+            }
+            
         }
         @page {
             size: A4 landscape;
