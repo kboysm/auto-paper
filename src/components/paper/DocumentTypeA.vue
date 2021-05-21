@@ -1,4 +1,5 @@
 <template>
+<!-- 계약갱신요구권 행사 여부 확인서 -->
     <div class="create-paper-container">
         <div class="preview-paper page" :style="reportCss">
             <div class="subpage" id="content">

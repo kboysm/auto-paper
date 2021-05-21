@@ -4,11 +4,11 @@
             <label class="select" for="slct">
             <select id="slct" required="required" v-model="cloneSelectedPaper">
                 <option value="" disabled="disabled" selected="selected">서류 선택</option>
-                <option @click="updateSelectedPaper('계약권갱신요구권')">계약갱신요구권 행사 여부 확인서</option>
-                <option @click="updateSelectedPaper('test1')">test1</option>
-                <option @click="updateSelectedPaper('test2')">test2</option>
-                <option @click="updateSelectedPaper('test3')">test3</option>
-                <option @click="updateSelectedPaper('test4')">test4</option>
+                <option>계약갱신요구권 행사 여부 확인서</option>
+                <option>임대계약해지확인서</option>
+                <option>test2</option>
+                <option>test3</option>
+                <option>test4</option>
             </select>
             <svg>
                 <use xlink:href="#select-arrow-down"></use>
@@ -22,15 +22,18 @@
             </svg>
         </div>
         <document-type-a :resultObj="resultObj" v-if="selectedPaper === '계약갱신요구권 행사 여부 확인서'"/>
+        <document-type-b :resultObj="resultObj" v-if="selectedPaper === '임대계약해지확인서'"/>
     </div>
 </template>
 <script>
 import DocumentTypeA from '@/components/paper/DocumentTypeA'
+import DocumentTypeB from '@/components/paper/DocumentTypeB'
 import { computed, onMounted, ref, watch } from 'vue'
 import { useStore } from 'vuex'
 export default {
     components: {
-      DocumentTypeA
+      DocumentTypeA,
+      DocumentTypeB,
     },
     setup() {
       const store = useStore()

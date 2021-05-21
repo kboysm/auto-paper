@@ -19,7 +19,8 @@ function addStyles(win, styles) {
           defaultSpecs = ["fullscreen=yes", "titlebar=yes", "scrollbars=yes"],
           defaultReplace = true,
           defaultStyles = [
-            "./test.css"
+            "./css/typeA.css",
+            "./css/typeB.css",
           ];
         let {
           name = defaultName,
