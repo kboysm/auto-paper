@@ -16,7 +16,21 @@
                 <div class="subPaperName">
                     - 합 의 서 -
                 </div>
-                
+                <div class="middle-content">
+                    <div class="middle-title">제목 : 임대차계약해지건</div>
+                    <div class="middle-purpose-container">
+                        <div class="middle-purpose">해당부동산 : </div>
+                        <div class="middle-purpose-item">
+                            서울시 동작구 동작대로 다리 밑 400번째 집에서 세번째 노인
+                        </div>
+                    </div>
+                    <div class="middle-content-container">
+                        <div class="middle-content">내용 : </div>
+                        <div class="middle-content-item">
+                            상기 부동산의 임대차계약을 2020년 10월 12일 쌍방합의하에 종료하기로 합의함.
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -55,7 +69,7 @@
             // padding: 1cm;
             height: 256mm;
             color: black;
-            padding: 1.5cm;
+            padding: 2cm;
             .paperName {
                 font-size: 30px;
                 font-weight: 550;
@@ -84,7 +98,45 @@
                 font-weight: 530;
                 font-size: 30px;
             }
-            
+            .middle-content {
+                text-align: left;
+                display: flex;
+                flex-wrap: wrap;
+                font-size: 17px;
+                font-weight: 550;
+                letter-spacing: 2px;
+                padding-right:10px;
+                .middle-title {
+                    width: 100%;
+                    min-height: 50px;
+                }
+                .middle-purpose-container {
+                    width: 100%;
+                    display: flex;
+                    min-height: 50px;
+                    max-height: 70px;
+                    .middle-purpose {
+                    flex-shrink: 0;
+	                width: 120px;
+                    }
+                    .middle-purpose-item {
+                        flex-grow: 1;
+                    }
+                }
+                .middle-content-container {
+                    width: 100%;
+                    display: flex;
+                    min-height: 50px;
+                    .middle-content {
+                        flex-shrink: 0;
+	                    width: 70px;   
+                    }
+                    .middle-content-item {
+                        flex-grow: 1;
+                    }
+                }
+                
+            }
         }
         @page {
             size: A4 landscape;
