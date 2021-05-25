@@ -31,6 +31,22 @@
                         </div>
                     </div>
                 </div>
+                <br>
+                <div class="table-and-bottom">
+                        <div class="table-container">
+                            <div class="table-item">임 차 인</div>
+                            <div class="table-item">주민번호:</div>
+                            <div class="table-item">성    명: <span>서명: (인)</span> </div>
+                        </div>
+                        <br>
+                        <div class="table-container">
+                            <div class="table-item">임 차 인</div>
+                            <div class="table-item">주민번호:</div>
+                            <div class="table-item">성    명: <span>서명: (인)</span> </div>
+                        </div>
+                        <br>
+                        <div> 2020년 10월 10일</div>
+                    </div>
             </div>
         </div>
     </div>
@@ -136,6 +152,12 @@
                     }
                 }
                 
+            }
+            .table-container {
+                .table-item {
+                    border: 1px solid black;
+                border-collapse: collapse;
+                }
             }
         }
         @page {
